@@ -19,7 +19,7 @@ def get_model_predictions(data: dict):
         to_model.append(data[key])
     to_model = np.array(to_model)
     probas = model.predict(to_model, cat_indexes)
-    if (probas[0] <0.90):
-        return {"result":False}
+    if probas[0, 0] < 0.90:
+        return {"result": False}
     else:
-        return {"result":True}
+        return {"result": True}

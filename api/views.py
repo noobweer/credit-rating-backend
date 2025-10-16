@@ -12,6 +12,6 @@ class ModelPoolsView(APIView):
         data = request.data
         serializer = ModelPoolsSerializer(data=data)
         if serializer.is_valid():
-            return Response(get_model_predictions(request.data), status=200)
+            return Response(get_model_predictions(data), status=200)
         else:
             return Response(serializer.errors, status=400)
